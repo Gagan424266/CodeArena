@@ -1,0 +1,266 @@
+:root {
+  --bg: #0c1210;
+  --panel: #141c18;
+  --ink: #e8f0ea;
+  --muted: #8aa094;
+  --accent: #3dd68c;
+  --warn: #f0c14a;
+  --danger: #ff6b6b;
+  --line: #24302a;
+  --font: 'Outfit', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, #1a3d2e 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, #1a2a40 0%, transparent 45%),
+    var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+nav {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.panel {
+  background: color-mix(in srgb, var(--panel) 92%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.narrow {
+  max-width: 380px;
+  margin: 2rem auto;
+}
+
+.hero-block h1 {
+  margin: 0 0 0.35rem;
+  font-size: 2rem;
+}
+
+.hero-block p {
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+}
+
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  flex: 1;
+}
+
+button {
+  background: var(--accent);
+  color: #062014;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+.problem-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.problem-list li a {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.problem-list li a:hover strong {
+  color: var(--accent);
+}
+
+.diff {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.diff.easy {
+  color: var(--accent);
+}
+.diff.medium {
+  color: var(--warn);
+}
+.diff.hard {
+  color: var(--danger);
+}
+
+.tags {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 800px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statement {
+  white-space: pre-wrap;
+  line-height: 1.55;
+  color: #c5d4cb;
+}
+
+.example {
+  background: var(--bg);
+  padding: 0.85rem;
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+.editor {
+  width: 100%;
+  min-height: 360px;
+  background: #0a0f0d;
+  color: #d4e8da;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.verdict {
+  font-family: var(--mono);
+  font-weight: 600;
+}
+
+.verdict.AC {
+  color: var(--accent);
+}
+.verdict.WA,
+.verdict.RE,
+.verdict.CE,
+.verdict.TLE {
+  color: var(--danger);
+}
+
+.err {
+  color: var(--danger);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.board {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.board th,
+.board td {
+  text-align: left;
+  padding: 0.65rem 0.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.back {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
